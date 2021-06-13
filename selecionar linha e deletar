@@ -16,11 +16,13 @@ Set btnRng = sh.Cells(ActiveCell.Row, tabelaRng.Columns.Count + tabelaRng.Column
 Set btn = sh.Shapes.AddShape(msoShapeRectangle, btnRng.Left, btnRng.Top, btnRng.Width, btnRng.Height)
 
 With btn
+    .TextFrame.VerticalAlignment = xlVAlignCenter
+    .TextFrame.HorizontalAlignment = xlHAlignCenter
     .TextFrame2.TextRange = "DELETAR"
-    .TextFrame2.VerticalAnchor = msoAnchorMiddle
-    .TextFrame2.HorizontalAnchor = msoAnchorCenter
+    .TextFrame2.WordWrap = msoFalse
     .Name = "btnDelete"
     .OnAction = "msg"
+    .Fill.ForeColor.RGB = RGB(136, 8, 8)
 End With
 
 If Not regiaoSelecionada Is Nothing Then
@@ -52,4 +54,6 @@ If resp = vbYes Then
                     Planilha2.Cells(ActiveCell.Row, ActiveCell.CurrentRegion.Columns.Count + ActiveCell.CurrentRegion.Column - 1) _
                     ).Delete (xlShiftUp)
 End If
+
+Call selecionarLinha
 End Sub
