@@ -9,7 +9,7 @@ On Error Resume Next
 Planilha2.Shapes("btnDelete").Delete
 
 Set sh = Planilha2
-Set tabelaRng = sh.Range("c7").CurrentRegion
+Set tabelaRng = sh.Range("c7").CurrentRegion.Offset(1).Resize(sh.Range("C10").CurrentRegion.Rows.Count - 1)
 Set regiaoSelecionada = Application.Intersect(ActiveCell, tabelaRng)
 Set linha = sh.Range(sh.Cells(ActiveCell.Row, tabelaRng.Column), sh.Cells(ActiveCell.Row, tabelaRng.Columns.Count + tabelaRng.Column - 1))
 Set btnRng = sh.Cells(ActiveCell.Row, tabelaRng.Columns.Count + tabelaRng.Column)
