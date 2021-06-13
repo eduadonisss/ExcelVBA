@@ -1,0 +1,55 @@
+Option Explicit
+
+Sub selecionarLinha()
+Dim btn As Shape
+Dim sh As Worksheet
+Dim tabelaRng, regiaoSelecionada, linha, btnRng As Range
+
+On Error Resume Next
+Planilha2.Shapes("btnDelete").Delete
+
+Set sh = Planilha2
+Set tabelaRng = sh.Range("c7").CurrentRegion
+Set regiaoSelecionada = Application.Intersect(ActiveCell, tabelaRng)
+Set linha = sh.Range(sh.Cells(ActiveCell.Row, tabelaRng.Column), sh.Cells(ActiveCell.Row, tabelaRng.Columns.Count + tabelaRng.Column - 1))
+Set btnRng = sh.Cells(ActiveCell.Row, tabelaRng.Columns.Count + tabelaRng.Column)
+Set btn = sh.Shapes.AddShape(msoShapeRectangle, btnRng.Left, btnRng.Top, btnRng.Width, btnRng.Height)
+
+With btn
+    .TextFrame2.TextRange = "DELETAR"
+    .TextFrame2.VerticalAnchor = msoAnchorMiddle
+    .TextFrame2.HorizontalAnchor = msoAnchorCenter
+    .Name = "btnDelete"
+    .OnAction = "msg"
+End With
+
+If Not regiaoSelecionada Is Nothing Then
+    tabelaRng.Interior.ColorIndex = 0
+    linha.Interior.ColorIndex = 40
+Else
+    tabelaRng.Interior.ColorIndex = 0
+    On Error Resume Next
+    Planilha2.Shapes("btnDelete").Delete
+End If
+
+Set tabelaRng = Nothing
+Set sh = Nothing
+Set regiaoSelecionada = Nothing
+Set linha = Nothing
+End Sub
+
+Sub msg()
+Dim pergunta, titulo As String
+Dim resp As VbMsgBoxResult
+
+titulo = "Exclusão de linha"
+pergunta = "Deseja deletar essa linha?"
+
+resp = MsgBox(pergunta, vbQuestion + vbYesNoCancel, titulo)
+
+If resp = vbYes Then
+    Planilha2.Range(Planilha2.Cells(ActiveCell.Row, ActiveCell.CurrentRegion.Column), _
+                    Planilha2.Cells(ActiveCell.Row, ActiveCell.CurrentRegion.Columns.Count + ActiveCell.CurrentRegion.Column - 1) _
+                    ).Delete (xlShiftUp)
+End If
+End Sub
