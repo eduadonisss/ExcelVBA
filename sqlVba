@@ -68,10 +68,10 @@ Sub Excluindo_Dados_Access()
     Conexao.Close 'Fechando a conexao com a base
 End Sub
 
-Conexoes:
-_____________________________________________________________________________________________________________________________________________________________
+'Conexoes:
+'_____________________________________________________________________________________________________________________________________________________________
 ''>> conexao para Planilhas <<
-Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
+'Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
 
 ''>> conexao para Access <<
 'Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" & "C:\Temp\Banco.accdb" & "; Persist Security Info=False;Jet Oledb:DataBase"
