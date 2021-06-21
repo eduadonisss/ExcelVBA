@@ -1,0 +1,77 @@
+Sub Consultando_Planilha()
+    Dim Conexao As New ADODB.Connection
+    Dim rsConsulta As New ADODB.Recordset
+    Dim sql As String
+
+    ''>> conexao para Planilhas <<
+    Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
+    Conexao.Open 'Abrindo a conexao
+
+    ''>> Consultar <<
+    sql = "Select * From [Planilha1$]" 'Planilhas
+    rsConsulta.Open sql, Conexao, adOpenKeyset, adLockOptimistic
+    
+    MsgBox rsConsulta.RecordCount 'Contando os registros
+    Sheets("Planilha2").Range("A2").CopyFromRecordset rsConsulta 'Descarregando os registros
+    
+    Conexao.Close 'Fechando a conexao com a base
+End Sub
+
+Sub Incluindo_Registros()
+    Dim Conexao As New ADODB.Connection
+    Dim rsConsulta As New ADODB.Recordset
+    Dim sql As String
+
+    ''>> conexao para Planilhas <<
+    Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
+    Conexao.Open 'Abrindo a conexao
+
+    ''>> Incluir Registros na Base <<
+    sql = "Insert Into [Planilha1$] (Nome, Data, Valor) Values ('MacroFaz', '07/07/2077', '123,45')"
+    
+    rsConsulta.Open sql, Conexao, adOpenKeyset, adLockOptimistic
+           
+    Conexao.Close 'Fechando a conexao com a base
+End Sub
+
+Sub Atualizando_Dados()
+    Dim Conexao As New ADODB.Connection
+    Dim rsConsulta As New ADODB.Recordset
+    Dim sql As String
+
+    ''>> conexao para Planilhas <<
+    Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
+    Conexao.Open 'Abrindo a conexao
+
+    ''>> Atualizar Registros na Base <<
+    sql = "Update [Planilha1$] Set Nome = 'Nome alterado', Data = '01/01/21', Valor = '0,01' Where Nome Like 'Ademir'"
+    
+    rsConsulta.Open sql, Conexao, adOpenKeyset, adLockOptimistic
+           
+    Conexao.Close 'Fechando a conexao com a base
+End Sub
+
+Sub Excluindo_Dados_Access()
+    Dim Conexao As New ADODB.Connection
+    Dim rsConsulta As New ADODB.Recordset
+    Dim sql As String
+
+    ''>> conexao para Access <<
+    Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" & "C:\Temp\Banco.accdb" & "; Persist Security Info=False;Jet Oledb:DataBase"
+    Conexao.Open
+    
+    ''>> Excluir Registros na Base <<
+    sql = "Delete * From [Tabela] Where Nome Like 'Ademir'"
+    
+    rsConsulta.Open sql, Conexao, adOpenKeyset, adLockOptimistic
+           
+    Conexao.Close 'Fechando a conexao com a base
+End Sub
+
+Conexoes:
+_____________________________________________________________________________________________________________________________________________________________
+''>> conexao para Planilhas <<
+Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & ThisWorkbook.FullName & ";Extended Properties=Excel 8.0;"
+
+''>> conexao para Access <<
+'Conexao.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source =" & "C:\Temp\Banco.accdb" & "; Persist Security Info=False;Jet Oledb:DataBase"
