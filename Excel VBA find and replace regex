@@ -1,0 +1,19 @@
+'1 Abra um arquivo do Excel e, em seguida, o Editor VBA ( Alt esquerdo + F11 ).
+'2 Escolha Ferramentas >> Referências .
+'3 Adicione o Microsoft VBScript Regular Expression 5.5 . Se você não fizer isso, o Excel não reconhecerá o código e retornará um erro.
+'4 Crie um novo módulo e adicione o seguinte código.
+
+
+Function FindReplaceRegex(rng As Range, reg_exp As String, replace As String)
+Dim myRegExp As RegExp
+
+Set myRegExp = New RegExp
+    
+    With myRegExp
+        .IgnoreCase = False
+        .Global = True
+        .Pattern = reg_exp
+    End With
+    
+    FindReplaceRegex = myRegExp.replace(rng.value, replace)
+End Function
