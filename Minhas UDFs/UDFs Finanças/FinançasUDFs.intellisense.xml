@@ -1,0 +1,24 @@
+<IntelliSense xmlns="http://schemas.excel-dna.net/intellisense/1.0">
+  <FunctionInfo>
+    <Function  Name="CALC_INSS" Description="CALCULA O DESCONTO DO INSS SOBRE O SALARIO">
+      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+    </Function>
+    <Function  Name="CALC_DECIMO13" Description="CALCULA O VALOR DO DECIMO TERCEIRO">
+      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+      <Argument  Name="MESES" Description="NUMERO DE MESES TRABALHADOS"/>
+      <Argument  Name="DEPENDENTES" Description="NUMERO DE DEPENDENTES"/>
+      <Argument  Name="PARCELA" Description="1 OU 2"/>
+    </Function>
+    <Function  Name="CALC_FERIAS" Description="CALCULA O VALOR DAS FERIAS">
+      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+      <Argument  Name="DIAS FERIAS" Description="NUMERO DE DIAS FERIAS QUE PRETENDE TIRAR"/>
+      <Argument  Name="DIAS ABONO" Description="NUMERO DE DIAS DE ABONO PECUNIARIO"/>
+      <Argument  Name="DEPENDENTES" Description="NUMERO DE DEPENDENTES"/>
+    </Function>
+    <Function  Name="CALC_TRANSPORTE" Description="CALCULA O VALOR A SER DESCONTADO DO COLABORADOR">
+      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+      <Argument  Name="PASSAGEM" Description="VALOR TOTAL DO VALE-TRANSPORTE NO DIA"/>
+      <Argument  Name="QUANTIDADE" Description="QUANTIDADE DE DIAS TRABALHADOS NO MES"/>     
+    </Function>
+  </FunctionInfo>
+</IntelliSense>
