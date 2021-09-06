@@ -1,24 +1,24 @@
-<IntelliSense xmlns="http://schemas.excel-dna.net/intellisense/1.0">
+﻿<IntelliSense xmlns="http://schemas.excel-dna.net/intellisense/1.0">
   <FunctionInfo>
-    <Function  Name="CALC_INSS" Description="CALCULA O DESCONTO DO INSS SOBRE O SALARIO">
-      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+    <Function  Name="CALC_INSS" Description="CALCULA O DESCONTO DO INSS SOBRE O SALÁRIO">
+      <Argument  Name="SALÁRIO" Description="SALÁRIO BASE"/>
     </Function>
-    <Function  Name="CALC_DECIMO13" Description="CALCULA O VALOR DO DECIMO TERCEIRO">
-      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
-      <Argument  Name="MESES" Description="NUMERO DE MESES TRABALHADOS"/>
-      <Argument  Name="DEPENDENTES" Description="NUMERO DE DEPENDENTES"/>
-      <Argument  Name="PARCELA" Description="1 OU 2"/>
+    <Function  Name="CALC_DECIMO13" Description="CALCULA O VALOR DO DÉCIMO TERCEIRO">
+      <Argument  Name="SALÁRIO" Description="SALÁRIO BASE"/>
+      <Argument  Name="MESES" Description="NÚMERO DE MESES TRABALHADOS"/>
+      <Argument  Name="DEPENDENTES" Description="NÚMERO DE DEPENDENTES"/>
+      <Argument  Name="PARCELA" Description="1 OU 2. PADRÃO = 1"/>
     </Function>
-    <Function  Name="CALC_FERIAS" Description="CALCULA O VALOR DAS FERIAS">
-      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
-      <Argument  Name="DIAS FERIAS" Description="NUMERO DE DIAS FERIAS QUE PRETENDE TIRAR"/>
-      <Argument  Name="DIAS ABONO" Description="NUMERO DE DIAS DE ABONO PECUNIARIO"/>
-      <Argument  Name="DEPENDENTES" Description="NUMERO DE DEPENDENTES"/>
+    <Function  Name="CALC_FERIAS" Description="CALCULA O VALOR DAS FÉRIAS">
+      <Argument  Name="SALÁRIO" Description="SALÁRIO BASE"/>
+      <Argument  Name="DIAS FÉRIAS" Description="NÚMERO DE DIAS FÉRIAS QUE PRETENDE TIRAR"/>
+      <Argument  Name="DIAS ABONO" Description="NÚMERO DE DIAS DE ABONO PECUNIÁRIO"/>
+      <Argument  Name="DEPENDENTES" Description="NÚMERO DE DEPENDENTES"/>
     </Function>
     <Function  Name="CALC_TRANSPORTE" Description="CALCULA O VALOR A SER DESCONTADO DO COLABORADOR">
-      <Argument  Name="SALARIO" Description="SALARIO BASE"/>
+      <Argument  Name="SALÁRIO" Description="SALÁRIO BASE"/>
       <Argument  Name="PASSAGEM" Description="VALOR TOTAL DO VALE-TRANSPORTE NO DIA"/>
-      <Argument  Name="QUANTIDADE" Description="QUANTIDADE DE DIAS TRABALHADOS NO MES"/>     
+      <Argument  Name="QUANTIDADE" Description="QUANTIDADE DE DIAS TRABALHADOS NO MÊS"/>     
     </Function>
   </FunctionInfo>
 </IntelliSense>
