@@ -20,5 +20,19 @@
       <Argument  Name="PASSAGEM" Description="VALOR TOTAL DO VALE-TRANSPORTE NO DIA"/>
       <Argument  Name="QUANTIDADE" Description="QUANTIDADE DE DIAS TRABALHADOS NO MÊS"/>     
     </Function>
+    <Function  Name="CALC_INSALUBRIDADE_10" Description="CÁLCULA O ADICIONAL DE INSALUBRIDADE DE 10% DO SALÁRIO MÍNIMO">
+    </Function>
+    <Function  Name="CALC_INSALUBRIDADE_20" Description="CÁLCULA O ADICIONAL DE INSALUBRIDADE DE 20% DO SALÁRIO MÍNIMO">
+    </Function>
+    <Function  Name="CALC_INSALUBRIDADE_40" Description="CÁLCULA O ADICIONAL DE INSALUBRIDADE DE 40% DO SALÁRIO MÍNIMO">
+    </Function>
+    <Function  Name="CALC_PERICULOSIDADE_30" Description="CÁLCULA O ADICIONAL DE PERICULOSIDADE DE 30% DO SALÁRIO BASE">
+      <Argument  Name="SALÁRIO_BASE" Description="SALÁRIO BRUTO"/>
+    </Function>
+    <Function  Name="CALC_DSR" Description="CALCULA O VALOR DO DSR (Descanso Semanal Remunerado)">
+      <Argument  Name="TOTAL EXTRA" Description="TOTAL DE HORAS EXTRAS DO MÊS TRABALHADOS"/>
+      <Argument  Name="MÊS" Description="NÚMERO DO MÊS (DE 1 A 12)"/>
+      <Argument  Name="OMITIR SAB/DOM" Description="OMITIR SÁBADOS E DOMINGOS(VERDADEIRO) OU DOMINGOS(FALSO). PADRÃO = VERDADEIRO"/>     
+    </Function>
   </FunctionInfo>
 </IntelliSense>
