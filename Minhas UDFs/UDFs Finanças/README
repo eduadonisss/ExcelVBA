@@ -1,1 +1,30 @@
+######################################################################################################################################################################
+COMO INSTALAR UM SUPLEMENTO NO EXCEL
 
+1. Clique no botão Arquivo.
+
+2. Clique em Opções e clique no botão Suplementos. Nele você irá ter todos os suplementos Ativos e Inativos no Excel.
+
+3. Para ativar o Suplemento clique na combo Gerenciar e selecione Suplementos do Excel e clique no botão Ir…
+
+4. Na tela seguinte clique no botão Procurar… e selecione em AddIns o arquivo Guia do FinançasUDFs.xlam.
+
+5. Você pode colocar o arquivo em Usuários->Seu usuário->AppData->Roaming->Microsoft->AddIns para ficar melhor organizado, basta copiar o arquivo e colar nesta pasta.
+
+6. Após isso clique em OK e a guia do suplemento já estará disponível ao abrir o Excel.
+
+######################################################################################################################################################################
+COMO INSTALAR O ARQUIVO ExcelDna.IntelliSense.xll (ou ExcelDna.IntelliSense64.xll).
+
+(MESMO PROCESSO DE INSTALAÇÃO DO SUPLEMENTO)
+Para habilitar o Excel-DNA IntelliSense, você precisa carregar o suplemento ExcelDna.IntelliSense.xll (ou ExcelDna.IntelliSense64.xll).
+Você precisa verificar se sua versão do Excel é de 32 ou 64 bits e, em seguida, baixar o arquivo .xll correspondente.
+
+Abra qualquer aplicativo do Office, como o Word ou o Excel, e selecione Conta.
+Observação: Se você não encontrar o botão “Conta” ou se já tiver um arquivo ou documento aberto, escolha “Arquivo” no menu e selecione “Conta” ou “Ajuda” na lista à esquerda.
+Em “Informações do Produto”, você verá o nome e, em alguns casos, o número da versão completa do produto do Office.
+Para obter mais informações, sobre a versão de bits se é 32 ou 64 bits, clique em “sobre o Excel”. 
+Será aberta uma caixa de diálogo que mostra o número de versão completo e a versão de bits (32 bits ou 64 bits).
+
+######################################################################################################################################################################
+O ARQUIVO 'FinançasUDFs.intellisense.xml' TEM QUE FICAR NA MESMA PASTA DO ARQUIVO 'FinançasUDFs.xlam' ou 'FinançasUDFs.xlsm' E COM OS MESMOS NOMES.
