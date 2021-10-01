@@ -1,0 +1,110 @@
+Option Explicit
+
+Function FormatInterval(ByVal Interval As Variant, Fmt As String)
+'Formata a diferença entre duas datas ou a soma
+'mostraem formato de dia, horas, minutos e segundos.
+
+
+' Suporta os seguintes formatos:
+'   D H                    5 Days 5 Hours
+'   D H:MM                 5 Days 5:15
+'   D HH:MM                5 Days 05:15
+'   D H:MM:SS              5 Days 5:15:45
+'   D HH:MM:SS             5 Days 05:15:45
+'   H M                    125 Hours 15 Minutes
+'   H:MM                   125:15
+'   H:MM:SS                125:15:45
+'   M S                    7515 Minutes 45 Seconds
+'
+Dim Days As Long, Hours As Long, Minutes As Long, Seconds As Long
+'
+' Verifica Date or Double
+'
+  If VarType(Interval) <> 7 And VarType(Interval) <> 5 Then Exit Function
+'
+' Analisa os dias
+'
+  Days = Int(Interval)
+  Interval = Interval - Days
+  If Interval > #11:59:59 PM# Then
+    Days = Days + 1
+    Interval = 0#
+  End If
+'
+' Analisa as horas
+'
+  Interval = Interval * 24
+  Hours = Int(Interval)
+  Interval = Interval - Hours
+  If Interval > 3599# / 3600# Then
+    Hours = Hours + 1
+    Interval = 0#
+  End If
+'
+' Analisa os minutos
+'
+  Interval = Interval * 60
+  Minutes = Int(Interval)
+  Interval = Interval - Minutes
+  If Interval > 59# / 60# Then
+    Minutes = Minutes + 1
+    Interval = 0#
+  End If
+'
+' Analisa os segundos
+'
+  Seconds = Int(Interval * 60 + 0.5)
+'
+' Normalize
+'
+  If Seconds = 60 Then
+    Minutes = Minutes + 1
+    Seconds = 0
+  End If
+  If Minutes > 59 Then
+    Hours = Hours + 1
+    Minutes = Minutes - 60
+  End If
+  If Hours > 23 Then
+    Days = Days + 1
+    Hours = Hours - 24
+  End If
+'
+' Criação do Formato
+'
+  Select Case Fmt
+    Case "D H"
+      FormatInterval = Days & IIf(Days <> 1, " Dias ", " Dia ") _
+          & Hours & IIf(Hours <> 1, " Horas", " Hora")
+    Case "D H:MM"
+      FormatInterval = Days & IIf(Days <> 1, " Dias ", " Dia ") _
+          & Hours & ":" & Format(Minutes, "00")
+    Case "D HH:MM"
+      FormatInterval = Days & IIf(Days <> 1, " Dias ", " Dia ") _
+          & Format(Hours, "00") & ":" & Format(Minutes, "00")
+    Case "D H:MM:SS"
+      FormatInterval = Days & IIf(Days <> 1, " Dias ", " Dia ") _
+          & Hours & ":" & Format(Minutes, "00") & ":" & Format(Seconds, "00")
+    Case "D HH:MM:SS"
+      FormatInterval = Days & IIf(Days <> 1, " Dias ", " Dia ") _
+          & Format(Hours, "00") & ":" & Format(Minutes, "00") & ":" _
+          & Format(Seconds, "00")
+    Case "H M"
+      Hours = Hours + Days * 24
+      FormatInterval = Hours & IIf(Hours <> 1, " Horas ", " Hora ") & Minutes _
+          & IIf(Minutes <> 1, " Minutos", " Minuto")
+    Case "H:MM"
+      Hours = Hours + Days * 24
+      FormatInterval = Hours & ":" & Format(Minutes, "00")
+    Case "H:MM:SS"
+      Hours = Hours + Days * 24
+      FormatInterval = Hours & ":" & Format(Minutes, "00") & ":" _
+          & Format(Seconds, "00")
+    Case "M S"
+      Minutes = Minutes + (Hours + Days * 24) * 60
+      FormatInterval = Minutes & IIf(Minutes <> 1, " Minutos ", " Minuto ") _
+          & Seconds & IIf(Seconds <> 1, " Segundos", " Segundo")
+    Case Else
+      FormatInterval = Null
+  End Select
+End Function
